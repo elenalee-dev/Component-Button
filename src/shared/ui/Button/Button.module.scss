@@ -1,0 +1,153 @@
+/* цвета */
+$blue-color: #222f52;
+$blue-color-light: #025ab8;
+$white-color: #FFFFFF;
+$pink-color: #e08478;
+
+/* миксин */
+@mixin underline ($color) {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    align-self: flex-end;
+    transform: translateX(-100%);
+    background-color: $color;
+    transition: all 0.3s ease-out;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    position: relative;
+    border-radius: var(--border-radius);
+}
+
+.colorPrimary {
+    position: relative;
+    overflow: hidden;
+    background-color: $blue-color;
+    color: $white-color;
+    transition: background-color 0.5s ease-in-out;
+
+    .underLine {
+        @include underline($pink-color);
+    }
+
+
+    &:hover {
+        .underLine {
+            transform: translateX(0);
+        }
+    }
+}
+
+.colorSecondary {
+    background-color: $pink-color;
+    color: $white-color;
+}
+
+.colorOutline {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    color: $blue-color;
+    border: 2px solid $blue-color;
+
+    .underLine {
+        @include underline($blue-color);
+    }
+
+    &:hover {
+        .underLine {
+            transform: translateX(0);
+        }
+    }
+}
+
+.colorTransparent {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: $blue-color;
+}
+
+.colorDisabled {
+    background-color: #dcdcdc;
+    color: #7a7a7a;
+    border: none;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .underLine {
+        display: none;
+    }
+
+    &:hover {
+        background-color: #dcdcdc;
+    }
+}
+
+.circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.cta {
+    background: linear-gradient(90deg, $blue-color 25%, $blue-color-light 50%, $blue-color 75%);
+    background-size: 200% 100%;
+    animation: shimmer 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}
+
+.loading {
+    width: 42px;
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+
+    circle {
+        fill: black;
+        transform: scale(1.5);
+        animation: fade-in 1.2s infinite;
+    }
+}
+
+.waiting {
+    circle {
+        &:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0.5;
+    }
+}
