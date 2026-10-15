@@ -12,21 +12,13 @@ export const Button = ({
     ...otherProps
 }) => {
 
-    const colorClasses = {
-        primary: styles.colorPrimary,
-        secondary: styles.colorSecondary,
-        outline: styles.colorOutline,
-        transparent: styles.colorTransparent,
-        disabled: styles.colorDisabled
-    }
-
     const mode = {
         [styles.circle]: circle,
         [styles.cta]: cta,
     }
 
     const additional = [
-        colorClasses[color],
+        styles[color],
         className
     ]
 

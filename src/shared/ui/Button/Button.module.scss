@@ -28,7 +28,7 @@ $pink-color: #e08478;
     border-radius: var(--border-radius);
 }
 
-.colorPrimary {
+.primary {
     position: relative;
     overflow: hidden;
     background-color: $blue-color;
@@ -47,12 +47,12 @@ $pink-color: #e08478;
     }
 }
 
-.colorSecondary {
+.secondary {
     background-color: $pink-color;
     color: $white-color;
 }
 
-.colorOutline {
+.outline {
     position: relative;
     overflow: hidden;
     background-color: transparent;
@@ -70,7 +70,7 @@ $pink-color: #e08478;
     }
 }
 
-.colorTransparent {
+.transparent {
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -79,7 +79,7 @@ $pink-color: #e08478;
     color: $blue-color;
 }
 
-.colorDisabled {
+.disabled {
     background-color: #dcdcdc;
     color: #7a7a7a;
     border: none;
